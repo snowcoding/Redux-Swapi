@@ -1,5 +1,4 @@
 import {FETCHING, FETCHED, ERROR} from '../actions';
-import { Object } from 'core-js';
 
 const initialState = {
   // define a few properties here.
@@ -16,11 +15,14 @@ export const charsReducer = (state = initialState, action) => {
     // action types should be FETCHING, FETCHED, and ERROR
     // your switch statement should handle all of these cases.
     case FETCHING:
-      return Object.assign( {}, state, { fetching:true })
+      // return Object.assign( {}, state, { fetching:true })
+      return {...state, fetching:true }
     case FETCHED:
-      return Object.assign( {}, state, { fetching:false, fetched:true, chars:action.payload})
+      // return Object.assign( {}, state, { fetching:false, fetched:true, chars:action.payload})
+      return {...state, fetching:false, fetched:true, chars:action.payload}
     case ERROR:
-      return Object.assign( {}, state, {error:action.payload})
+      //return Object.assign( {}, state, {error:action.payload})
+      return {...state, error:action.payload}
     default:
       return state;
   }
